@@ -33,7 +33,7 @@ class User extends Authenticatable
     ];
 
     protected $casts = [
-        'is_verifed' => 'boolean',
+        'is_verified' => 'boolean',
     ];
 
     public function borrow(Book $book)
