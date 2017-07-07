@@ -43,7 +43,14 @@
                             </button>
                         </div>
                     </div>
+                    <div class="form-group{{ $errors->has('g-rechaptcha-response') ? 'has-error' : '' }}">
+                        <div class="col-md-offset-4 col-md-6">
+                            {!! app('captcha')->display() !!}
+                            {!! $errors->first('g-recaptcha-response', '<p class="help-block">:message</p>') !!}
+                        </div>
+                    </div>
                     {!! Form::close() !!}
+
                 </div>
             </div>
         </div>
