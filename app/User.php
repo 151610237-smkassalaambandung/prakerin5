@@ -32,6 +32,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $casts = [
+        'is_verifed' => 'boolean',
+    ];
+
     public function borrow(Book $book)
     {
         //cek apakah masih ada stok buku
@@ -52,5 +56,6 @@ class User extends Authenticatable
     	{
     		return $this->hasMany('App\BorrowLog');
     	}
+
     
 }
