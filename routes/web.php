@@ -22,6 +22,13 @@ Route::resource('/coba', 'CobaaController');
 Route::group(['prefix'=>'admin','middleware'=>['auth','role:admin']], function(){
 	Route::resource('authors','AuthorsController');
 	Route::resource('books','BooksController');
+	Route::resource('members', 'MembersController');
+	Route::get('statistics',[
+		'as'=>'statistics.index',
+		'uses'=>'StatisticsController@index'
+	
+	]);
+
 });
 
 Route::get('books/{book}/borrow', [
@@ -37,3 +44,9 @@ Route::put('books/{book}/return', [
 
 
 Route::get('auth/verify/{token}','Auth\RegisterController@verify');
+Route::get('auth/send-verification','Auth\RegisterController@sendVerification');
+Route::get('settings/profile', 'SettingsController@profile');
+Route::get('settings/profile/edit', 'SettingsController@editProfile');
+Route::post('settings/profile', 'SettingsController@updateProfile');
+Route::get('settings/password', 'SettingsController@editPassword');
+Route::post('settings/password', 'SettingsController@updatePassword');
