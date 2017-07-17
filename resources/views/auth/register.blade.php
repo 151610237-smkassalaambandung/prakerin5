@@ -36,10 +36,11 @@
                             {!! $errors->first('password_confirmation','<p class="help-block">:message</p>') !!}
                         </div>
                     </div>
-                    <div class="form-group{{ $errors->has('g-recaptcha-response') ? 'has-error' : '' }}">
-                        <div class="col-md-offset-4 col-md-6">
+                    <div class="form-group {{$errors->has('g-recaptcha-response')? 'has-error' : ''}} ">
+                        <div class="col-md-offset-4 col-md-6" >
+
                             {!! app('captcha')->display() !!}
-                            {!! $errors->first('g-recaptcha-response', '<p class="help-block">:message</p>') !!}
+                            {!! $errors->first('g-recaptcha-response','<p class="help-block">:message</p>') !!}
                         </div>
                     </div>
                     <div class="form-group">
